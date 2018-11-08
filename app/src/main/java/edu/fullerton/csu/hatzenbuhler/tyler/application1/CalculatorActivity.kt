@@ -14,6 +14,7 @@ class CalculatorActivity : AppCompatActivity() {
         val message = intent.getStringExtra(EXTRA_MESSAGE)
         if(message == "0"){
             calcTitle.text = "Calculator 1"
+            // Test comment
         }
         else if(message == "1"){
             calcTitle.text = "Calculator 2"
