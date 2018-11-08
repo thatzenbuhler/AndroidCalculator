@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Application 1</string>
+    <string name="choose_your_calculator">Choose your Calculator</string>
+    <string name="calculator">Calculator</string>
+</resources>
