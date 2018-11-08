@@ -9,10 +9,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 val calcList = arrayOf(
-    "Calculator 1",
-    "Calculator 2",
-    "Calculator 3",
-    "Calculator 4"
+    "Calculate Area",
+    "Calculate Tip",
+    "BMI Calculator",
+    "Price After Tax Calculator"
 )
 class MainActivity : AppCompatActivity() {
 

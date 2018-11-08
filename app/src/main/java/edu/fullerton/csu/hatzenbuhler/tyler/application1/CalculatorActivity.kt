@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.AlarmClock.EXTRA_MESSAGE
 import kotlinx.android.synthetic.main.activity_calculator.*
+import java.text.DecimalFormat
 
 class CalculatorActivity : AppCompatActivity() {
 
@@ -13,17 +14,73 @@ class CalculatorActivity : AppCompatActivity() {
 
         val message = intent.getStringExtra(EXTRA_MESSAGE)
         if(message == "0"){
-            calcTitle.text = "Calculator 1"
-            // Test comment
+            calcTitle.text = "Calculate Area"
+            inputOne.text = "Enter Length"
+            inputTwo.text = "Enter Width"
+            resultType.text = "Area in units:"
+            button.setOnClickListener {
+                if(fieldOne.text.toString() != "" && fieldTwo.text.toString() != ""){
+                    val a = fieldOne.text.toString().toBigInteger()
+                    val b = fieldTwo.text.toString().toBigInteger()
+                    val res = a * b
+                    result.text = res.toString()
+                }
+                else{
+                    result.text = "Input Error"
+                }
+            }
         }
         else if(message == "1"){
-            calcTitle.text = "Calculator 2"
+            calcTitle.text = "Calculate Tip"
+            inputOne.text = "Enter Cost of Bill"
+            inputTwo.text = "Enter Percent Desired"
+            resultType.text = "Dollars to give for tip:"
+            button.setOnClickListener {
+                if(fieldOne.text.toString() != "" && fieldTwo.text.toString() != ""){
+                    val a = fieldOne.text.toString().toDouble()
+                    val b = fieldTwo.text.toString().toDouble()
+                    val res = a * (b * .01)
+                    result.text = res.toString()
+                }
+                else{
+                    result.text = "Input Error"
+                }
+            }
         }
         else if(message == "2"){
-            calcTitle.text = "Calculator 3"
+            calcTitle.text = "BMI Calculator"
+            inputOne.text = "Enter height in inches"
+            inputTwo.text = "Enter weight in pounds"
+            resultType.text = "Body Mass Index:"
+            button.setOnClickListener {
+                if(fieldOne.text.toString() != "" && fieldTwo.text.toString() != ""){
+                    val a = fieldOne.text.toString().toDouble()
+                    val b = fieldTwo.text.toString().toDouble()
+                    val res = (b / (a * a)) * 705
+                    val df = DecimalFormat("#.##")
+                    result.text = df.format(res)
+                }
+                else{
+                    result.text = "Input Error"
+                }
+            }
         }
         else if(message == "3"){
-            calcTitle.text = "Calculator 4"
+            calcTitle.text = "Price After Tax Calculator"
+            inputOne.text = "Enter Price"
+            inputTwo.text = "Enter Tax Rate (%)"
+            resultType.text = "Price After Tax:"
+            button.setOnClickListener {
+                if(fieldOne.text.toString() != "" && fieldTwo.text.toString() != ""){
+                    val a = fieldOne.text.toString().toDouble()
+                    val b = fieldTwo.text.toString().toDouble()
+                    val res = a + (a * (b * .01))
+                    result.text = res.toString()
+                }
+                else{
+                    result.text = "Input Error"
+                }
+            }
         }
     }
 }
