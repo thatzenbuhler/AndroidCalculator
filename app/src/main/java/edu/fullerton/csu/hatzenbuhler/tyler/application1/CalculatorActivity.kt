@@ -17,13 +17,14 @@ class CalculatorActivity : AppCompatActivity() {
             calcTitle.text = "Calculate Area"
             inputOne.text = "Enter Length"
             inputTwo.text = "Enter Width"
-            resultType.text = "Area in units:"
+            resultType.text = "Area in units squared:"
             button.setOnClickListener {
                 if(fieldOne.text.toString() != "" && fieldTwo.text.toString() != ""){
-                    val a = fieldOne.text.toString().toBigInteger()
-                    val b = fieldTwo.text.toString().toBigInteger()
+                    val a = fieldOne.text.toString().toDouble()
+                    val b = fieldTwo.text.toString().toDouble()
                     val res = a * b
-                    result.text = res.toString()
+                    val df = DecimalFormat("#.##")
+                    result.text = df.format(res)
                 }
                 else{
                     result.text = "Input Error"
@@ -40,7 +41,8 @@ class CalculatorActivity : AppCompatActivity() {
                     val a = fieldOne.text.toString().toDouble()
                     val b = fieldTwo.text.toString().toDouble()
                     val res = a * (b * .01)
-                    result.text = res.toString()
+                    val df = DecimalFormat("#.##")
+                    result.text = df.format(res)
                 }
                 else{
                     result.text = "Input Error"
@@ -75,7 +77,8 @@ class CalculatorActivity : AppCompatActivity() {
                     val a = fieldOne.text.toString().toDouble()
                     val b = fieldTwo.text.toString().toDouble()
                     val res = a + (a * (b * .01))
-                    result.text = res.toString()
+                    val df = DecimalFormat("#.##")
+                    result.text = df.format(res)
                 }
                 else{
                     result.text = "Input Error"
